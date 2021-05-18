@@ -1,5 +1,5 @@
 package br.com.bancotla.si.entidades;
 
-public class Cliente {
+public abstract class Cliente {
 	
 }
