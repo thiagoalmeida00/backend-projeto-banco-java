@@ -1,5 +1,8 @@
 package br.com.bancotla.si.entidades;
 
+import br.com.bancotla.si.entidades.exceptions.valorInvalidoException;
+import br.com.bancotla.si.entidades.exceptions.valorLimiteException;
+
 public abstract class Conta {
 
 	private int numeroConta;
@@ -14,11 +17,76 @@ public abstract class Conta {
 		this.agencia = agencia;
 		this.titular = titular;
 	}
+
+	public void sacar(double montante) throws valorInvalidoException, valorLimiteException {
+		
+		if (montante <= 0) {
+			throw new valorInvalidoException("Erro! Informe valor válido");
+		}
+		
+		if (montante > saldo) {
+			throw new valorLimiteException("Saldo insuficiente!");
+		}
+		
+		saldo -= montante;
+		
+	}
 	
+	public void depositar(double montante) throws valorInvalidoException {
+		
+		if (montante <= 0) {
+			throw new valorInvalidoException("Erro! Informe valor válido");
+		}
+		
+		saldo += montante;
+	}
 	
+	public void transferir(Conta contaDestino, double montante) throws valorInvalidoException, valorLimiteException {
+		
+		if (montante <= 0) {
+			throw new valorInvalidoException("Erro! Informe valor válido");
+		}
+		
+		this.sacar(montante);
+		contaDestino.depositar(montante);
+		
+	}
 	
+	/*
+	public Date consulta(String data) throws ParseException {
+		
+		Date simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+		return simpleDateFormat;
+
+	}
+	*/
 	
-	
-	
+	public int getNumeroConta() {
+		return numeroConta;
+	}
+
+	public void setNumeroConta(int numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+
+	public Agencia getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(Agencia agencia) {
+		this.agencia = agencia;
+	}
+
+	public Cliente getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
 	
 }

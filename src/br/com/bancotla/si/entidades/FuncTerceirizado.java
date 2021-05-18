@@ -1,10 +1,10 @@
 package br.com.bancotla.si.entidades;
 
-public class Terceirizado extends Funcionario {
+public class FuncTerceirizado extends Funcionario {
 
 	private String empresa;
 
-	public Terceirizado(String nome, long cpf, double salario, int regimeContrato, int regimeHoras, String empresa) {
+	public FuncTerceirizado(String nome, long cpf, double salario, int regimeContrato, int regimeHoras, String empresa) {
 		super(nome, cpf, salario, regimeContrato, regimeHoras);
 		this.empresa = empresa;
 	}

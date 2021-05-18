@@ -1,10 +1,10 @@
 package br.com.bancotla.si.entidades;
 
-public class Tecnico extends Funcionario {
+public class FuncTecnico extends Funcionario {
 
 	private double bonusSalarioTecnico;
 
-	public Tecnico(String nome, long cpf, double salario, int regimeContrato, int regimeHoras,
+	public FuncTecnico(String nome, long cpf, double salario, int regimeContrato, int regimeHoras,
 			double bonusSalarioTecnico) {
 		super(nome, cpf, salario += bonusSalarioTecnico, regimeContrato, regimeHoras);
 		this.bonusSalarioTecnico = bonusSalarioTecnico;

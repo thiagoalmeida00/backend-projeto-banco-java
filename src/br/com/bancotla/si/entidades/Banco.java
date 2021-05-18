@@ -1,26 +1,17 @@
 package br.com.bancotla.si.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Banco {
 
 	private String razaoSocial;
 	private String nomeFantasia;
 	private long cnpj;
 	private String endereco;
-	
-	private List<Agencia> agencias = new ArrayList<>();
 
 	public Banco(String razaoSocial, String nomeFantasia, long cnpj, String endereco) {
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;
 		this.endereco = endereco;
-	}
-
-	public List<Agencia> getAgencias() {
-		return agencias;
 	}
 	
 	// TODO implementar método para listar todas as contas cadastradas
