@@ -1,5 +1,7 @@
 package br.com.bancotla.si.entidades;
 
+import java.util.Date;
+
 import br.com.bancotla.si.entidades.exceptions.valorInvalidoException;
 import br.com.bancotla.si.entidades.exceptions.valorLimiteException;
 
@@ -52,14 +54,10 @@ public abstract class Conta {
 		
 	}
 	
-	/*
-	public Date consulta(String data) throws ParseException {
-		
-		Date simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy").parse(data);
-		return simpleDateFormat;
+	public String extrato(Date data) {
+		return "Saldo em " + new Date() + ": R$ " + String.format("%.2f", saldo);
 
 	}
-	*/
 	
 	public int getNumeroConta() {
 		return numeroConta;

@@ -2,19 +2,14 @@ package br.com.bancotla.si.entidades;
 
 public class FuncGerente extends Funcionario {
 
-	private double bonusSalarioGerente;
+	public static final double BONUS_SALARIO_GERENTE = 500.0;
 
 	public FuncGerente(String nome, long cpf, double salario, int regimeContrato, int regimeHoras, double bonusSalarioGerente) {
-		super(nome, cpf, salario += bonusSalarioGerente, regimeContrato, regimeHoras);
-		this.bonusSalarioGerente = bonusSalarioGerente;
+		super(nome, cpf, salario, regimeContrato, regimeHoras);
 	}
 
-	public double getAdicionalDeSalario() {
-		return bonusSalarioGerente;
-	}
-
-	public void setAdicionalDeSalario(double bonusSalarioGerente) {
-		this.bonusSalarioGerente = bonusSalarioGerente;
+	public void calculaSalario() {
+		//TODO implementar método		
 	}
 	
 }

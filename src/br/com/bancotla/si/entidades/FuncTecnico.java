@@ -6,10 +6,11 @@ public class FuncTecnico extends Funcionario {
 
 	public FuncTecnico(String nome, long cpf, double salario, int regimeContrato, int regimeHoras,
 			double bonusSalarioTecnico) {
-		super(nome, cpf, salario += bonusSalarioTecnico, regimeContrato, regimeHoras);
+		super(nome, cpf, salario, regimeContrato, regimeHoras);
 		this.bonusSalarioTecnico = bonusSalarioTecnico;
 	}
 
+	// colocar bonus como uma constante
 	public double getBonusSalarioTecnico() {
 		return bonusSalarioTecnico;
 	}
