@@ -17,9 +17,8 @@ public class Agencia {
 		this.numeroAgencia = numeroAgencia;
 	}
 
-	public int getFuncionarios(Agencia agencia) {
-		System.out.print("Número de funcionários: ");
-		return listaFuncionarios.size();
+	public List<Funcionario> getFuncionarios(Agencia agencia) {
+		return listaFuncionarios;
 	}
 	
 	public List<Conta> getListaContas() {

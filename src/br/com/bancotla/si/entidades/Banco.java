@@ -1,5 +1,8 @@
 package br.com.bancotla.si.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Banco {
 
 	private String razaoSocial;
@@ -7,6 +10,8 @@ public class Banco {
 	private long cnpj;
 	private String endereco;
 
+	public List<Agencia> listaAgencias = new ArrayList<>();
+	
 	public Banco(String razaoSocial, String nomeFantasia, long cnpj, String endereco) {
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
@@ -14,8 +19,9 @@ public class Banco {
 		this.endereco = endereco;
 	}
 	
-	// TODO implementar método para listar todas as contas cadastradas
-	// TODO implementar método para retornar o saldo total investido de todas as contas
+	public List<Agencia> getAgencias() {
+		return listaAgencias;
+	}
 	
 	public String getRazaoSocial() {
 		return razaoSocial;

@@ -1,14 +1,14 @@
 package br.com.bancotla.si.entidades.exceptions;
 
-public class valorLimiteException extends Exception {
+public class ValorLimiteException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public valorLimiteException() {
+	public ValorLimiteException() {
 		super();
 	}
 
-	public valorLimiteException(String message) {
+	public ValorLimiteException(String message) {
 		super(message);
 	}
 	

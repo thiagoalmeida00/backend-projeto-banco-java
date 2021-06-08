@@ -1,22 +1,19 @@
 package br.com.bancotla.si.entidades;
 
-public class FuncTecnico extends Funcionario {
+import br.com.bancotla.si.servicos.Honorario;
 
-	private double bonusSalarioTecnico;
-
-	public FuncTecnico(String nome, long cpf, double salario, int regimeContrato, int regimeHoras,
-			double bonusSalarioTecnico) {
+public class FuncTecnico extends Funcionario implements Honorario {
+	
+	public FuncTecnico(String nome, long cpf, double salario, int regimeContrato, int regimeHoras) {
 		super(nome, cpf, salario, regimeContrato, regimeHoras);
-		this.bonusSalarioTecnico = bonusSalarioTecnico;
 	}
 
-	// colocar bonus como uma constante
-	public double getBonusSalarioTecnico() {
-		return bonusSalarioTecnico;
-	}
-
-	public void setBonusSalarioTecnico(double bonusSalarioTecnico) {
-		this.bonusSalarioTecnico = bonusSalarioTecnico;
+	@Override
+	public double calculaSalario() {
+		double descontoEncargos = super.getSalario() * ENCARGOS_TRABALHISTAS;
+		double salarioTecnico = (super.getSalario() + AUXILIO_ALIMENTACAO + AUXILIO_SAUDE 
+				+ AUXILIO_TRANSPORTE) - descontoEncargos;
+		return salarioTecnico;
 	}
 	
 }

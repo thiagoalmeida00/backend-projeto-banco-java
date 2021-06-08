@@ -1,14 +1,14 @@
 package br.com.bancotla.si.entidades.exceptions;
 
-public class valorInvalidoException extends Exception {
+public class ValorInvalidoException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public valorInvalidoException() {
+	public ValorInvalidoException() {
 		super();
 	}
 
-	public valorInvalidoException(String message) {
+	public ValorInvalidoException(String message) {
 		super(message);
 	}
 

@@ -1,6 +1,6 @@
 package br.com.bancotla.si.entidades;
 
-public class ClientePessoaJuridica extends Cliente {
+public final class ClientePessoaJuridica extends Cliente {
 
 	private String razaoSocial;
 	private String endereco;
@@ -8,7 +8,9 @@ public class ClientePessoaJuridica extends Cliente {
 	private long inscricaoMunicipal;
 	private double mediaFaturamentoAnual;
 	
-	public ClientePessoaJuridica(String razaoSocial, String endereco, long cnpj, long inscricaoMunicipal, double mediaFaturamentoAnual) {
+	public ClientePessoaJuridica(int numeroDeCliente, String razaoSocial, String endereco, long cnpj,
+			long inscricaoMunicipal, double mediaFaturamentoAnual) {
+		super(numeroDeCliente);
 		this.razaoSocial = razaoSocial;
 		this.endereco = endereco;
 		this.cnpj = cnpj;
@@ -57,7 +59,8 @@ public class ClientePessoaJuridica extends Cliente {
 	}
 	
 	public String toString() {
-		return "Razão Social: " + razaoSocial + "\n" +
+		return "Número de Cliente: " + super.getNumeroDeCliente() + "\n" +
+				"Razão Social: " + razaoSocial + "\n" +
 				"CNPJ: " + cnpj + "\n" +
 				"Endereço: " + endereco + "\n" +
 				"Inscrição Municipal: " + inscricaoMunicipal + "\n" +
