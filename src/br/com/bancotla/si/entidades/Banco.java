@@ -7,12 +7,12 @@ public class Banco {
 
 	private String razaoSocial;
 	private String nomeFantasia;
-	private long cnpj;
+	private String cnpj;
 	private String endereco;
 
 	public List<Agencia> listaAgencias = new ArrayList<>();
 	
-	public Banco(String razaoSocial, String nomeFantasia, long cnpj, String endereco) {
+	public Banco(String razaoSocial, String nomeFantasia, String cnpj, String endereco) {
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;
@@ -39,11 +39,11 @@ public class Banco {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public long getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(long cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 

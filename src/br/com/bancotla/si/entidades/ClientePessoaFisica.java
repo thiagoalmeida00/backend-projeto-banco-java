@@ -4,10 +4,10 @@ public final class ClientePessoaFisica extends Cliente {
 
 	private String nome;
 	private String endereco;
-	private long cpf;
+	private String cpf;
 	private double rendaMensal;
 
-	public ClientePessoaFisica(int numeroDeCliente, String nome, String endereco, long cpf, double rendaMensal) {
+	public ClientePessoaFisica(int numeroDeCliente, String nome, String endereco, String cpf, double rendaMensal) {
 		super(numeroDeCliente);
 		this.nome = nome;
 		this.endereco = endereco;
@@ -31,11 +31,11 @@ public final class ClientePessoaFisica extends Cliente {
 		this.endereco = endereco;
 	}
 
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

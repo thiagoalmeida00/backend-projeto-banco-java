@@ -12,17 +12,23 @@ public class Agencia {
 	
 	private List<Conta> listaContas = new ArrayList<>();
 
+	private List<Cliente> listaClientes = new ArrayList<Cliente>();
+	
 	public Agencia(String nomeAgencia, int numeroAgencia) {
 		this.nomeAgencia = nomeAgencia;
 		this.numeroAgencia = numeroAgencia;
 	}
-
+	
 	public List<Funcionario> getFuncionarios(Agencia agencia) {
 		return listaFuncionarios;
 	}
 	
 	public List<Conta> getListaContas() {
 		return listaContas;
+	}
+	
+	public List<Cliente> getListaClientes(Cliente cliente) {
+		return listaClientes;
 	}
 
 	public String getNomeAgencia() {

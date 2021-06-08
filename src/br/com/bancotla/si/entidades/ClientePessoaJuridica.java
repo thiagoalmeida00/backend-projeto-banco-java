@@ -4,11 +4,11 @@ public final class ClientePessoaJuridica extends Cliente {
 
 	private String razaoSocial;
 	private String endereco;
-	private long cnpj;
+	private String cnpj;
 	private long inscricaoMunicipal;
 	private double mediaFaturamentoAnual;
 	
-	public ClientePessoaJuridica(int numeroDeCliente, String razaoSocial, String endereco, long cnpj,
+	public ClientePessoaJuridica(int numeroDeCliente, String razaoSocial, String endereco, String cnpj,
 			long inscricaoMunicipal, double mediaFaturamentoAnual) {
 		super(numeroDeCliente);
 		this.razaoSocial = razaoSocial;
@@ -34,11 +34,11 @@ public final class ClientePessoaJuridica extends Cliente {
 		this.endereco = endereco;
 	}
 
-	public long getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(long cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
