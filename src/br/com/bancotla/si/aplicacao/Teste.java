@@ -9,6 +9,10 @@ import br.com.bancotla.si.entidades.Agencia;
 import br.com.bancotla.si.entidades.Banco;
 import br.com.bancotla.si.entidades.Cliente;
 import br.com.bancotla.si.entidades.ClientePessoaFisica;
+import br.com.bancotla.si.entidades.ClientePessoaJuridica;
+import br.com.bancotla.si.entidades.Conta;
+import br.com.bancotla.si.entidades.ContaCorrente;
+import br.com.bancotla.si.entidades.ContaPoupanca;
 
 public class Teste {
 
@@ -79,14 +83,68 @@ public class Teste {
 		
 		// DUVIDA >>> reconhecimento de caracteres especiais do arquivo CSV
 		
-		//String arquivoClientePj = "D:\\clientePj.txt";
+		String arquivoClientePj = "D:\\clientePj.txt";
 		
-		// TODO impressão de caracteres especiais no console
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(arquivoClientePj))) {
+
+			String linhaCsv = bufferedReader.readLine();
+			while (linhaCsv != null) {
+
+				String[] fields = linhaCsv.split(",");
+				int numeroDeCliente = Integer.parseInt(fields[0]);
+				String razaoSocial = fields[1];
+				String endereco = fields[2];
+				String cnpj = fields[3];
+				long inscricaoMunicipal = Long.parseLong(fields[4]);
+				double mediaFaturamentoAnual = Double.parseDouble(fields[5]);
+				
+				// DUVIDA >>> prática correta sem atribuir a uma variável?? ERRO ao atribuir erro no programa
+				bancoTLA.getAgencias().get(0).getListaClientes().add(new ClientePessoaJuridica(numeroDeCliente, razaoSocial, endereco, cnpj, inscricaoMunicipal, mediaFaturamentoAnual));
+				
+				linhaCsv = bufferedReader.readLine();
+			}
+			
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 		
-		// TODO fazer inserção de clientes PJ por leitura de arquivo
+		for (Cliente cliente : bancoTLA.getAgencias().get(0).getListaClientes()) {
+			System.out.println(cliente);
+			System.out.println("--------------------------------");
+		}
+		
+		System.out.println("====================================");
+		
+		// DUVIDA >>> impressão de caracteres especiais no console
 		
 		// TODO inserir contas e testar métodos (polimorfismo..)
 
+		// DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
+		ContaCorrente contaCorrentePf01 = new ContaCorrente(1101, 20000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(0));
+		ContaCorrente contaCorrentePf02 = new ContaCorrente(1102, 5000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(1));
+		ContaCorrente contaCorrentePf03 = new ContaCorrente(1103, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(2));
+		
+		ContaPoupanca contaPoupancaPf01 = new ContaPoupanca(2101, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(3));
+		ContaPoupanca contaPoupancaPf02 = new ContaPoupanca(2102, 15000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(4));
+		
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf01);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf02);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf03);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaPoupancaPf01);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaPoupancaPf02);
+		
+		ContaCorrente contaCorrentePj01 = new ContaCorrente(1101, 20000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(0));
+		ContaCorrente contaCorrentePj02 = new ContaCorrente(1102, 5000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(1));
+		ContaCorrente contaCorrentePj03 = new ContaCorrente(1103, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(2));
+		
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePj01);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePj02);
+		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePj03);
+		
+		System.out.println(contaCorrentePf01.calculaTributos());
+		System.out.println(contaCorrentePf02.calculaSaldoContaMensal());
+		System.out.println(contaCorrentePf03.extrato());
+		
 	}
 
 }

@@ -49,7 +49,7 @@ public final class ClientePessoaFisica extends Cliente {
 	
 	public String toString() {
 		return "Número de Cliente: " + super.getNumeroDeCliente() + "\n" +
-				"Nome:  " + nome + "\n" +
+				"Nome: " + nome + "\n" +
 				"Endereço: " + endereco + "\n" +
 				"CPF: " + cpf + "\n" + 
 				"Renda Mensal: R$ " + String.format("%.2f", rendaMensal);

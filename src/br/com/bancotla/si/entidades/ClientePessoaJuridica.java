@@ -64,7 +64,7 @@ public final class ClientePessoaJuridica extends Cliente {
 				"CNPJ: " + cnpj + "\n" +
 				"Endereço: " + endereco + "\n" +
 				"Inscrição Municipal: " + inscricaoMunicipal + "\n" +
-				"Media do faturamento anual (R$): " + String.format("%.2f", mediaFaturamentoAnual);
+				"Media do faturamento anual: R$ " + String.format("%.2f", mediaFaturamentoAnual);
 	}
 	
 }

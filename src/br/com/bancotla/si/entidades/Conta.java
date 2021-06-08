@@ -56,7 +56,7 @@ public abstract class Conta {
 		
 	}
 	
-	public String extrato(Date data) {
+	public String extrato() {
 		return "Saldo em " + new Date() + ": R$ " + String.format("%.2f", saldo);
 
 	}
