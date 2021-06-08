@@ -19,7 +19,7 @@ public class Agencia {
 		this.numeroAgencia = numeroAgencia;
 	}
 	
-	public List<Funcionario> getFuncionarios(Agencia agencia) {
+	public List<Funcionario> getFuncionarios() {
 		return listaFuncionarios;
 	}
 	
@@ -27,7 +27,7 @@ public class Agencia {
 		return listaContas;
 	}
 	
-	public List<Cliente> getListaClientes(Cliente cliente) {
+	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
 

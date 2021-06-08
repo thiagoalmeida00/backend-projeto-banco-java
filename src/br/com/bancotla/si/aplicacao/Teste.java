@@ -7,6 +7,8 @@ import java.util.Locale;
 
 import br.com.bancotla.si.entidades.Agencia;
 import br.com.bancotla.si.entidades.Banco;
+import br.com.bancotla.si.entidades.Cliente;
+import br.com.bancotla.si.entidades.ClientePessoaFisica;
 
 public class Teste {
 
@@ -36,7 +38,14 @@ public class Teste {
 			System.out.println(e.getMessage());
 		}
 		
+		for (Agencia agencia : bancoTLA.listaAgencias) {
+			System.out.println(agencia);	
+		}
+		
+		System.out.println("====================================");
+		
 		String arquivoClientePf = "D:\\clientePf.txt";
+		
 		
 		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(arquivoClientePf))) {
 
@@ -47,10 +56,11 @@ public class Teste {
 				int numeroDeCliente = Integer.parseInt(fields[0]);
 				String nome = fields[1];
 				String endereco = fields[2];
-				String cpf = fields[2];
-				double rendaMensal = Double.parseDouble(fields[3]);
-
-				// TODO adicionar os clientes na agencia 0001;
+				String cpf = fields[3];
+				double rendaMensal = Double.parseDouble(fields[4]);
+				
+				// DUVIDA >>> prática correta sem atribuir a uma variável?? ERRO ao atribuir erro no programa
+				bancoTLA.getAgencias().get(0).getListaClientes().add(new ClientePessoaFisica(numeroDeCliente, nome, endereco, cpf, rendaMensal));
 				
 				linhaCsv = bufferedReader.readLine();
 			}
@@ -59,19 +69,23 @@ public class Teste {
 			System.out.println(e.getMessage());
 		}
 		
-			
+		// DUVIDA >>> sintaxe do for para lista de cliente (pf ou cliente genérico / in variavel)
+		for (Cliente cliente : bancoTLA.getAgencias().get(0).getListaClientes()) {
+			System.out.println(cliente);
+			System.out.println("--------------------------------");
+		}
 		
-
+		System.out.println("====================================");
 		
-			String arquivoClientePj = "D:\\clientePj.txt";
+		// DUVIDA >>> reconhecimento de caracteres especiais do arquivo CSV
 		
-		// TODO fazer uma adição das agências por leitura de arquivo
+		//String arquivoClientePj = "D:\\clientePj.txt";
 		
-		// TODO fazer inserção de clientes PF e PJ por leitura de arquivo
+		// TODO impressão de caracteres especiais no console
 		
-		// TODO fazer inserção de contas correntes em uma agencia por leitura de arquivo
+		// TODO fazer inserção de clientes PJ por leitura de arquivo
 		
-		// TODO fazer inserção de funcionários por leitura de arquivo
+		// TODO inserir contas e testar métodos (polimorfismo..)
 
 	}
 

@@ -9,7 +9,7 @@ public class FuncGerente extends Funcionario implements Honorario {
 	public FuncGerente(String nome, long cpf, double salario, int regimeContrato, int regimeHoras, double bonusSalarioGerente) {
 		super(nome, cpf, salario, regimeContrato, regimeHoras);
 	}
-
+	
 	@Override
 	public double calculaSalario() {
 		double descontoEncargos = super.getSalario() * ENCARGOS_TRABALHISTAS;

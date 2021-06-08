@@ -51,8 +51,8 @@ public final class ClientePessoaFisica extends Cliente {
 		return "Número de Cliente: " + super.getNumeroDeCliente() + "\n" +
 				"Nome:  " + nome + "\n" +
 				"Endereço: " + endereco + "\n" +
-				"CPF: " + cpf +
-				"Renda Mensal (R$): " + String.format("%.2f", rendaMensal);
+				"CPF: " + cpf + "\n" + 
+				"Renda Mensal: R$ " + String.format("%.2f", rendaMensal);
 	}
 	
 }
