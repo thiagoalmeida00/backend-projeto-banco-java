@@ -29,7 +29,7 @@ public class Teste {
 			String linhaCsv = bufferedReader.readLine();
 			while (linhaCsv != null) {
 
-				String[] fields = linhaCsv.split(",");
+				String[] fields = linhaCsv.split(", ");
 				String nomeAgencia = fields[0];
 				int numeroAgencia = Integer.parseInt(fields[1]);
 
@@ -56,7 +56,7 @@ public class Teste {
 			String linhaCsv = bufferedReader.readLine();
 			while (linhaCsv != null) {
 
-				String[] fields = linhaCsv.split(",");
+				String[] fields = linhaCsv.split(", ");
 				int numeroDeCliente = Integer.parseInt(fields[0]);
 				String nome = fields[1];
 				String endereco = fields[2];
@@ -90,7 +90,7 @@ public class Teste {
 			String linhaCsv = bufferedReader.readLine();
 			while (linhaCsv != null) {
 
-				String[] fields = linhaCsv.split(",");
+				String[] fields = linhaCsv.split(", ");
 				int numeroDeCliente = Integer.parseInt(fields[0]);
 				String razaoSocial = fields[1];
 				String endereco = fields[2];
@@ -117,19 +117,51 @@ public class Teste {
 		
 		// DUVIDA >>> impressão de caracteres especiais no console
 		
-		// TODO inserir contas e testar métodos (polimorfismo..)
+		String contaCorrente = "D:\\cc.txt";
+		
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(contaCorrente))) {
 
-		// DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
+			String linhaCsv = bufferedReader.readLine();
+			
+			int contagemTitular = 0;
+			while (linhaCsv != null) {
+
+				String[] fields = linhaCsv.split(", ");
+				int numeroConta = Integer.parseInt(fields[0]);
+				double saldo = Double.parseDouble(fields[1]);
+				Agencia agencia = bancoTLA.listaAgencias.get(0);
+
+				for (int i = contagemTitular; i < contagemTitular + 1; i++) {
+					Cliente titular = bancoTLA.listaAgencias.get(0).getListaClientes().get(i);
+					bancoTLA.listaAgencias.get(0).getListaContas().add(new ContaCorrente(numeroConta, saldo, agencia, titular));
+				}
+				contagemTitular++;
+				
+				linhaCsv = bufferedReader.readLine();
+			}
+			
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+
+		for (Conta conta : bancoTLA.listaAgencias.get(0).getListaContas()) {
+			System.out.println(conta.getAgencia());
+			System.out.println(conta.getNumeroConta());
+			System.out.println(conta.getTitular());
+			System.out.println("Saldo da conta: R$ " + String.format("%.2f", conta.getSaldo()));
+			System.out.println("...........................");
+		}
+		
+		/* DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
 		ContaCorrente contaCorrentePf01 = new ContaCorrente(1101, 20000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(0));
 		ContaCorrente contaCorrentePf02 = new ContaCorrente(1102, 5000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(1));
 		ContaCorrente contaCorrentePf03 = new ContaCorrente(1103, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(2));
+		*/
 		
+		// DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
 		ContaPoupanca contaPoupancaPf01 = new ContaPoupanca(2101, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(3));
 		ContaPoupanca contaPoupancaPf02 = new ContaPoupanca(2102, 15000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(4));
 		
-		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf01);
-		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf02);
-		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePf03);
 		bancoTLA.listaAgencias.get(0).getListaContas().add(contaPoupancaPf01);
 		bancoTLA.listaAgencias.get(0).getListaContas().add(contaPoupancaPf02);
 		
@@ -141,9 +173,9 @@ public class Teste {
 		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePj02);
 		bancoTLA.listaAgencias.get(0).getListaContas().add(contaCorrentePj03);
 		
-		System.out.println(contaCorrentePf01.calculaTributos());
-		System.out.println(contaCorrentePf02.calculaSaldoContaMensal());
-		System.out.println(contaCorrentePf03.extrato());
+		System.out.println(contaPoupancaPf01.calculaTributos());
+		System.out.println(contaPoupancaPf02.calculaSaldoContaMensal());
+		System.out.println(contaCorrentePj01.extrato());
 		
 	}
 
