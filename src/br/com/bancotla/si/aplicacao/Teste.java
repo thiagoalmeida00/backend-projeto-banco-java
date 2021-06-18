@@ -63,7 +63,6 @@ public class Teste {
 				String cpf = fields[3];
 				double rendaMensal = Double.parseDouble(fields[4]);
 				
-				// DUVIDA >>> prática correta sem atribuir a uma variável?? ERRO ao atribuir erro no programa
 				bancoTLA.getAgencias().get(0).getListaClientes().add(new ClientePessoaFisica(numeroDeCliente, nome, endereco, cpf, rendaMensal));
 				
 				linhaCsv = bufferedReader.readLine();
@@ -73,15 +72,12 @@ public class Teste {
 			System.out.println(e.getMessage());
 		}
 		
-		// DUVIDA >>> sintaxe do for para lista de cliente (pf ou cliente genérico / in variavel)
 		for (Cliente cliente : bancoTLA.getAgencias().get(0).getListaClientes()) {
 			System.out.println(cliente);
 			System.out.println("--------------------------------");
 		}
 		
 		System.out.println("====================================");
-		
-		// DUVIDA >>> reconhecimento de caracteres especiais do arquivo CSV
 		
 		String arquivoClientePj = "D:\\clientePj.txt";
 		
@@ -98,7 +94,6 @@ public class Teste {
 				long inscricaoMunicipal = Long.parseLong(fields[4]);
 				double mediaFaturamentoAnual = Double.parseDouble(fields[5]);
 				
-				// DUVIDA >>> prática correta sem atribuir a uma variável?? ERRO ao atribuir erro no programa
 				bancoTLA.getAgencias().get(0).getListaClientes().add(new ClientePessoaJuridica(numeroDeCliente, razaoSocial, endereco, cnpj, inscricaoMunicipal, mediaFaturamentoAnual));
 				
 				linhaCsv = bufferedReader.readLine();
@@ -114,8 +109,6 @@ public class Teste {
 		}
 		
 		System.out.println("====================================");
-		
-		// DUVIDA >>> impressão de caracteres especiais no console
 		
 		String contaCorrente = "D:\\cc.txt";
 		
@@ -152,13 +145,12 @@ public class Teste {
 			System.out.println("...........................");
 		}
 		
-		/* DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
+		/*
 		ContaCorrente contaCorrentePf01 = new ContaCorrente(1101, 20000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(0));
 		ContaCorrente contaCorrentePf02 = new ContaCorrente(1102, 5000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(1));
 		ContaCorrente contaCorrentePf03 = new ContaCorrente(1103, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(2));
 		*/
 		
-		// DUVIDA >>> tem outra forma mais enxuta de instanciar o construtor com parametros tipo Classe (Agencia e Cliente)?
 		ContaPoupanca contaPoupancaPf01 = new ContaPoupanca(2101, 8000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(3));
 		ContaPoupanca contaPoupancaPf02 = new ContaPoupanca(2102, 15000, bancoTLA.getAgencias().get(0), bancoTLA.getAgencias().get(0).getListaClientes().get(4));
 		
