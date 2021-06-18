@@ -28,7 +28,7 @@ public class Teste {
 
 			String linhaCsv = bufferedReader.readLine();
 			while (linhaCsv != null) {
-
+				
 				String[] fields = linhaCsv.split(", ");
 				String nomeAgencia = fields[0];
 				int numeroAgencia = Integer.parseInt(fields[1]);
