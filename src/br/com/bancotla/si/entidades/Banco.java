@@ -9,8 +9,8 @@ public class Banco {
 	private String nomeFantasia;
 	private String cnpj;
 	private String endereco;
-
-	public List<Agencia> listaAgencias = new ArrayList<>();
+	
+	private List<Agencia> listaAgencias = new ArrayList<>();
 	
 	public Banco(String razaoSocial, String nomeFantasia, String cnpj, String endereco) {
 		this.razaoSocial = razaoSocial;

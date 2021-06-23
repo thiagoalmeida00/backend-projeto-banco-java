@@ -2,7 +2,7 @@ package br.com.bancotla.si.servicos.util;
 
 import br.com.bancotla.si.entidades.enums.MoedaEnum;
 
-public class Util {
+public class MoedaUtil {
 
 	private static final double COTACAO_DOLAR = 5.0483;
 	private static final double COTACAO_PESO_ARGENTINO = 0.05314;
