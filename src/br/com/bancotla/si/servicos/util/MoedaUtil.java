@@ -10,11 +10,19 @@ public class MoedaUtil {
 	public static double converterMoeda(double montante, MoedaEnum origem, MoedaEnum destino) {
 		
 		if (origem.equals(MoedaEnum.REAL) && destino.equals(MoedaEnum.DOLAR)) {
-			montante *= COTACAO_DOLAR;
+			montante /= COTACAO_DOLAR;
 		}
 		
-		else if (origem.equals(MoedaEnum.REAL) && destino.equals(MoedaEnum.PESO_ARGENTINO)) {
+		if (origem.equals(MoedaEnum.REAL) && destino.equals(MoedaEnum.PESO_ARGENTINO)) {
+			montante /= COTACAO_PESO_ARGENTINO;
+		}
+		
+		if (origem.equals(MoedaEnum.PESO_ARGENTINO) && destino.equals(MoedaEnum.REAL)) {
 			montante *= COTACAO_PESO_ARGENTINO;
+		}
+		
+		if (origem.equals(MoedaEnum.DOLAR) && destino.equals(MoedaEnum.REAL)) {
+			montante *= COTACAO_DOLAR;
 		}
 				
 		return montante;
