@@ -1,8 +1,8 @@
-## Linguagem Java e Conceitos de POO
+# Linguagem Java e Conceitos de POO
 
 Repositório destinado a prática da linguagem Java e aplicação dos conceitos de Programação Orientada à Objetos (POO) em um projeto que simula entidades de um banco fictício contendo relações de herança entre entidades, simulação de regras de negócio com a aplicação de interfaces, listas de agências, clientes, contas e tipos, entre outras abordagens.
 
-### Implementações
+## Implementações
 
 * Classes;
 * Construtores;
